@@ -1,6 +1,6 @@
 # Google Ads MCP Starter Kit — Manage Google Ads with AI
 
-> **This is a recipe repo.** The Synter MCP server itself lives at [Synter-Media-AI/mcp-server](https://github.com/Synter-Media-AI/mcp-server): 19 ad platforms, campaign creation on 14, one-click install in Cursor, Claude, ChatGPT, and VS Code. Issues, releases, and ⭐ go there.
+> **This is a recipe repo.** The Synter MCP server itself lives at [Synter-Media-AI/mcp-server](https://github.com/Synter-Media-AI/mcp-server): create, launch, and optimize campaigns across 16 ad platforms, with one-click install in Cursor, Claude, ChatGPT, and VS Code. Issues, releases, and ⭐ go there.
 
 
 [![MCP Compatible](https://img.shields.io/badge/MCP-compatible-blue)](https://modelcontextprotocol.io)
@@ -11,6 +11,29 @@
 
 ---
 
+## Install
+
+[![Add to Cursor](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=synter-ads&config=eyJ1cmwiOiJodHRwczovL21jcC5zeW50ZXJhaS5jb20ifQ==)
+[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_Synter-0098FF?logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=synter-ads&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.synterai.com%22%7D)
+
+- **Cursor / VS Code:** click a button above, or open this repo — it ships `.cursor/mcp.json` and `.vscode/mcp.json`.
+- **Claude Code:** this repo ships `.mcp.json`; or run:
+  ```bash
+  claude mcp add --transport http synter-ads https://mcp.synterai.com
+  ```
+- **Codex:**
+  ```bash
+  codex mcp add synter-ads --url https://mcp.synterai.com
+  codex mcp login synter-ads
+  ```
+- **Claude Desktop:** copy `claude_desktop_config.json` into your Claude config directory (macOS: `~/Library/Application Support/Claude/`, Windows: `%APPDATA%\Claude\`) and replace the placeholder API key.
+
+Your client opens Synter sign-in in the browser (OAuth). New here? Create an account at https://synterai.com/sign-up. Headless/CI fallback: send `X-Synter-Key` with a key from https://synterai.com/developer.
+
+The MCP server itself: https://github.com/Synter-Media-AI/mcp-server
+
+---
+
 ## Why Google Ads + AI?
 
 Google Ads is the highest-intent advertising platform on the planet. When someone searches "best CRM for startups," they're actively looking to buy. But managing Google Ads well requires constant attention: adjusting bids, testing ad copy, adding negative keywords, monitoring Quality Scores, and interpreting GAQL reports.
@@ -18,27 +41,6 @@ Google Ads is the highest-intent advertising platform on the planet. When someon
 AI agents eliminate the grunt work. Instead of clicking through the Google Ads UI, you describe what you want in plain English. The agent handles the API calls, validates your inputs, and executes changes — in seconds, not hours.
 
 **Best for:** Intent-based marketing, lead generation, ecommerce, SaaS, local businesses — anyone who wants to capture demand when people are actively searching.
-
----
-
-## Quick Start (30 Seconds)
-
-### Amp / Cursor / VS Code (Copilot)
-
-1. **Get a free API key** at [syntermedia.ai/developer](https://syntermedia.ai/developer)
-2. **Set the key:**
-   ```bash
-   export SYNTER_API_KEY=syn_your_key_here
-   ```
-3. **Open this repo** in your editor
-4. **Start chatting** — MCP tools are pre-configured in `.mcp.json`
-
-### Claude Desktop
-
-Copy `claude_desktop_config.json` to your Claude config directory and replace the API key:
-
-- **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
-- **Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
 
 ---
 
@@ -165,7 +167,7 @@ Copy `claude_desktop_config.json` to your Claude config directory and replace th
 Yes. With this MCP starter kit, Claude (or any MCP-compatible agent) can create campaigns, adjust bids, add keywords, write ad copy, and pull performance reports — all through the Google Ads API.
 
 ### Do I need the Google Ads API?
-No. The Synter MCP server handles API authentication and calls. You just need a free API key from [syntermedia.ai/developer](https://syntermedia.ai/developer).
+No. The Synter MCP server handles API authentication and calls. You just need a Synter account ([sign up](https://synterai.com/sign-up) — your MCP client signs in with OAuth).
 
 ### Is there an MCP for Google Ads?
 This is it. This repo pre-configures the Synter MCP server for Google Ads management. Works with Amp, Cursor, VS Code, and Claude Desktop.
@@ -177,7 +179,7 @@ Campaigns are created in PAUSED state by default. The agent will always confirm 
 Google Ads Query Language — a SQL-like language for querying your Google Ads data. It's far more powerful than the Google Ads UI for finding specific performance patterns. Example: `SELECT ad_group_criterion.keyword.text, metrics.ctr WHERE metrics.impressions > 1000 ORDER BY metrics.ctr ASC`.
 
 ### Can I use this with my existing Google Ads account?
-Absolutely. Connect your Google Ads account via OAuth at [syntermedia.ai/settings](https://syntermedia.ai/settings/credentials), and the agent can manage your existing campaigns.
+Absolutely. Connect your Google Ads account via OAuth at [synterai.com/settings](https://synterai.com/settings/credentials), and the agent can manage your existing campaigns.
 
 ---
 
@@ -196,4 +198,4 @@ Absolutely. Connect your Google Ads account via OAuth at [syntermedia.ai/setting
 
 MIT — see [LICENSE](LICENSE) for details.
 
-Built by [Synter](https://syntermedia.ai) · [Get API Key](https://syntermedia.ai/developer) · [Documentation](https://syntermedia.ai/docs)
+Built by [Synter](https://synterai.com) · [Get API Key](https://synterai.com/developer) · [Documentation](https://synterai.com/docs)
